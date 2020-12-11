@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Lets find the test cases Shall we  {% endblock %}
+
+
+{% block body %}
+
+  <div class="container sm-margin-top">
+    <div class="row text-center lg-margin-bottom">
+      <h1>Feeling lucky?</h1>
+      <h3 class="text-muted">
+        Lets find the test cases Shall we
+      </h3>
+    </div>
+    <div class="row text-center">
+<head>
+  <meta charset="utf-8" />
+  <title>Chart.js Example</title>
+  <!-- import plugin script -->
+  <script src='static/Chart.min.js'></script>
+</head>
+      <div class="col-lg-4">
+        <i class="fa fa-fw fa-4x fa-database text-primary"></i>
+        <h2>Enter story id</h2>
+        <p class="text-muted">Get matching text cases if its in DB.</p>
+        <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+      </div>
+      {% for tc_id in tc_ids %}
+      <div>
+        <p>{{tc_id}}</p>
+
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

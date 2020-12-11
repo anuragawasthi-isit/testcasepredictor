@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Lets find the test cases Shall we  {% endblock %}
+
+
+{% block body %}
+
+  <div class="container  sm-margin-top">
+    <div class="row text-center lg-margin-bottom">
+
+      <h1>Feeling lucky?</h1>
+      <h3 class="text-muted">
+        Lets find the test cases Shall we
+      </h3>
+    </div>
+    <div  class="row text-center" align="center">
+
+      <div class="col-lg-4" align="center">
+        <i class="fa fa-fw fa-4x fa-database text-primary"></i>
+        <h2>Enter story or feature id</h2>
+        <p class="text-muted">Get matching test cases in one click.</p>
+        <form action = "http://localhost:5000/search" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+      </div>
+
+</div>
+<div >
+     {% for res in result %}
+      <div><p>{{res[0]}}
+
+      <div   class="progress-bar progress-bar-striped active" role="progressbar"
+  aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{res[1]*100+30}}%">
+          {{res[1]*100+30}}
+  </div>
+        <br>
+      </p>
+
+      </div>
+
+      {% endfor %}
+
+
+</div>
+
+  </div>
+{% endblock %}
